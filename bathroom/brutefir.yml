@@ -6,11 +6,11 @@ cli_port: 6556
 inputs:
   - name: in
     channels: 2
-    format: S16_LE
+    format: S24_4LE
 outputs:
   - name: out
     channels: 2
-    format: S16_LE
+    format: S24_4LE
 filters:
   - name: filter
     input: in
