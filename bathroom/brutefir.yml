@@ -1,0 +1,23 @@
+float_bits: 32
+sampling_rate: 44100
+resample_coeffs: True
+filter_length: 4096, 32
+cli_port: 6556
+inputs:
+  - name: in
+    channels: 2
+    format: S16_LE
+outputs:
+  - name: out
+    channels: 2
+    format: S16_LE
+filters:
+  - name: filter
+    input: in
+    output: out
+    coeff: door_closed
+coeffs:
+  - name: dirac
+    path: dirac pulse
+  - name: door_closed
+    path: bathroom door closed, elevate-filters-48k.wav

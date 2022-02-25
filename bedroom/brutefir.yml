@@ -1,0 +1,35 @@
+float_bits: 32
+sampling_rate: 44100
+resample_coeffs: True
+filter_length: 4096, 32
+cli_port: 6556
+inputs:
+  - name: in
+    channels: 2
+    format: S16_LE
+outputs:
+  - name: out
+    channels: 2
+    format: S16_LE
+filters:
+  - name: filter
+    input: in
+    output: out
+    coeff: bed_door_open
+coeffs:
+  - name: dirac
+    path: dirac pulse
+  - name: bed_door_closed
+    path: bed door closed Dec 2-filters-48k.wav
+  - name: bed_door_open
+    path: bed door open Dec 2-filters-48k.wav
+  - name: desk_door_closed
+    path: desk door closed Dec 2-filters-48k.wav
+  - name: desk_door_open
+    path: desk door open Dec 2-filters-48k.wav
+  - name: new_bed_door_open
+    path: bedroom desk door open Jan 26-filters-44k.wav
+  - name: autoeq_bed_door_open
+    path: bedroom-desk-door-open minimum phase 44100Hz.wav
+  - name: newer_desk_door_open
+    path: bedroom door open desk Jan 26-filters-44k.wav

@@ -1,0 +1,37 @@
+float_bits: 32
+sampling_rate: 44100
+resample_coeffs: True
+filter_length: 4096, 32
+cli_port: 6556
+inputs:
+  - name: in
+    channels: 2
+    format: S16_LE
+outputs:
+  - name: out
+    channels: 2
+    format: S16_LE
+filters:
+  - name: filter
+    input: in
+    output: out
+    coeff: harman_with_sub_dec7
+coeffs:
+  - name: dirac
+    path: dirac pulse
+  - name: harman_without_sub
+    path: harman-without-sub.pcm
+    rate: 48000
+    format: S16_LE
+  - name: harman_with_sub_dec7
+    path: dec7-sub.pcm
+    rate: 48000
+    format: S16_LE
+  - name: hd650
+    path: hd650.pcm
+    rate: 48000
+    format: S16_LE
+  - name: speakers
+    path: stereo chair sub 80 facing Jan 27-filters-44k.wav
+  - name: no_sub
+    path: stereo chair LR Jan 27-filters-44k.wav
